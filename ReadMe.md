@@ -99,3 +99,30 @@ poetry show
 ## Example 4 Onwards
 
 From **Example 4** onwards, we transition to a local chatbot that runs in a web browser. We used **Claude AI** to convert our Example 3 code into a **Streamlit server**, which provides a user-friendly web interface for interacting with our SmoLAgents setup.
+
+Install streamlit first
+
+`poetry add streamlit` 
+
+`streamlit run src/4_streamlit_basic_demo.py`
+
+Note that the above code was generated using Claude.AI free version. 
+
+The prompt - 
+
+```
+I want to use some chat interface for the following code:
+
+from smolagents import CodeAgent, LiteLLMModel, PythonInterpreterTool
+# Initialize the model
+model = LiteLLMModel(model_id="ollama_chat/llama3.2:3b", api_key="ollama")
+# Create an agent with the Python interpreter tool
+agent = CodeAgent(tools=[PythonInterpreterTool()], model=model)
+# Run the agent
+result = agent.run("Calculate the sum of numbers from 1 to 10. Subtract 15 from it. Multiply by 5 and give me answer.")
+print(result)
+
+can you write a streamlit app to do this
+```
+
+
